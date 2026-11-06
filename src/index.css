@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #fdf8f3;
+    color: #1a1a2e;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .horizontal-scroll {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 8px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .horizontal-scroll::-webkit-scrollbar { display: none; }
+  .scroll-card { scroll-snap-align: start; flex-shrink: 0; }
+  .glass {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .glass-dark {
+    background: rgba(26,26,46,0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #f97316, #ea580c, #c2410c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-saffron { background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #dc2626 100%); }
+  .gradient-forest { background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); }
+  .btn-primary {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    color: white;
+    font-weight: 500;
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px rgba(249,115,22,0.15);
+    transition: all 0.3s;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary:hover { box-shadow: 0 0 30px rgba(249,115,22,0.3); transform: translateY(-1px); }
+  .card-premium {
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+    overflow: hidden;
+  }
+  .card-premium:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.15); transform: translateY(-4px); }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; color: #1a1a2e; }
+}
+
+@media (min-width: 768px) {
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #f1f1f1; }
+  ::-webkit-scrollbar-thumb { background: #f97316; border-radius: 3px; }
+}
